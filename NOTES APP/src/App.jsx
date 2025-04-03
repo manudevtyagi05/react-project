@@ -7,17 +7,15 @@ const App = () => {
 
   // Load notes from local storage on mount
   useEffect(() => {
-    const sevedNotes = localStorage.getItem("notes");
-    if (sevedNotes) {
-      setNotes(JSON.parse(sevedNotes));
+    const savedNotes = localStorage.getItem("notes");
+    if (savedNotes) {
+      setNotes(JSON.parse(savedNotes));
     }
   }, []);
 
   // Save notes to local storage whenever they change
   useEffect(() => {
-    if (notes.length > 0) {
-      localStorage.setItem("notes", JSON.stringify(notes));
-    }
+    localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
   // Add a new note
